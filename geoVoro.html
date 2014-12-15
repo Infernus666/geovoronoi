@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Javascript implementation of Steven Fortune's algorithm to compute Voronoi diagrams: Demo 1</title>
+<meta name="Keywords" lang="en" content="voronoi, fortune, javascript, raymond hill"/>
+<!--[if lte IE 8]><script type="text/javascript" src="excanvas/excanvas.compiled.js"></script><![endif]-->
+<script type="text/javascript" src="rhill-voronoi-core.js"></script>
+
+</head>
+<body>
+<h1>This is Voronoi Demo</h1>
+<script id="script" type="text/javascript">
+	// function init() {
+		var sites = [{x:32.123456, y:-175.654321}, {x:32.214365, y:162.123234}, {x:32.907856, y:-162.098765}, {x:32.019283, y:172.102938}, {x:32.444555, y:-176.555444}, {x:32.333222, y:-179.222333}];
+
+		// var sites = [{x:32, y:-122}, {x:33, y:-123}, {x:37, y:-128}, {x:30, y:-120}, {x:31, y:-119}, {x:22, y:-100}];
+
+		var geoVoronoi = new GeoVoronoi();
+		geoVoronoi.computeGeoVononoi(sites);
+
+		console.log('Voronoi Graph: ' + JSON.stringify(geoVoronoi.voronoiGraph));
+
+		console.log('Cells count: ' + geoVoronoi.voronoiGraph.cells.length);
+		console.log('1st site: {x:' + geoVoronoi.voronoiGraph.cells[0].site['x'] + ', y:' +  geoVoronoi.voronoiGraph.cells[0].site['y'] + '}');
+		console.log('2nd site: {x:' + geoVoronoi.voronoiGraph.cells[1].site['x'] + ', y:' +  geoVoronoi.voronoiGraph.cells[1].site['y'] + '}');
+		console.log('3rd site: {x:' + geoVoronoi.voronoiGraph.cells[2].site['x'] + ', y:' +  geoVoronoi.voronoiGraph.cells[2].site['y'] + '}');
+		console.log('4th site: {x:' + geoVoronoi.voronoiGraph.cells[3].site['x'] + ', y:' +  geoVoronoi.voronoiGraph.cells[3].site['y'] + '}');
+		console.log('5th site: {x:' + geoVoronoi.voronoiGraph.cells[4].site['x'] + ', y:' +  geoVoronoi.voronoiGraph.cells[4].site['y'] + '}');
+		console.log('6th site: {x:' + geoVoronoi.voronoiGraph.cells[5].site['x'] + ', y:' +  geoVoronoi.voronoiGraph.cells[5].site['y'] + '}');
+
+		console.log('Bbox: xl:' + geoVoronoi.bbox.xl + ' ,xr:' + geoVoronoi.bbox.xr + ' ,yt:' + geoVoronoi.bbox.yt + ' ,yb:' + geoVoronoi.bbox.yb + '}');
+		console.log('Vertices count: ' + geoVoronoi.voronoiGraph.vertices.length);
+		console.log('4th sites edges count: ' + geoVoronoi.voronoiGraph.cells[3].halfedges.length);
+		console.log('4th sites 1st edge end vertex: {' + geoVoronoi.voronoiGraph.cells[3].halfedges[0].edge.vb['y'] + ', ' + geoVoronoi.voronoiGraph.cells[3].halfedges[0].edge.vb['x'] + '}');
+		console.log('4th sites 2nd edge start vertex: {' + geoVoronoi.voronoiGraph.cells[3].halfedges[1].edge.va['y'] + ', ' + geoVoronoi.voronoiGraph.cells[3].halfedges[1].edge.va['x'] + '}');
+	// };
+</script>
+</body>
