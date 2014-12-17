@@ -24,9 +24,9 @@ History: See https://github.com/gorhill/Javascript-Voronoi/CHANGELOG.md
 
 
 module.exports = {
-    getGeoVoronoiGraph: function (sites) {
+    getGeoVoronoiGraph: function (spots) {
         var geoVoronoi = new GeoVoronoi();
-        geoVoronoi.computeGeoVononoi(sites);
+        geoVoronoi.computeGeoVononoi(JSON.parse(spots));
         var geoVoronoiGraph = geoVoronoi.voronoiGraph;
         return geoVoronoiGraph;
     }
@@ -46,6 +46,7 @@ function GeoVoronoi() {
 }
 
 GeoVoronoi.prototype.computeGeoVononoi = function(sites) {
+    console.log("ssssites: " + sites[0]['x']);
     this.sites = sites;
 
     var HIGH_LNG = this.getHighestLng();
@@ -53,7 +54,7 @@ GeoVoronoi.prototype.computeGeoVononoi = function(sites) {
     var hasLinearized = false;
 
     if((HIGH_LNG - LOW_LNG) > 180) {
-        sites = this.linearizeLongitudes();
+        this.linearizeLongitudes();
         hasLinearized = true;
     }
 
@@ -153,13 +154,11 @@ GeoVoronoi.prototype.sanitize = function(latLng) {
 
 
 GeoVoronoi.prototype.linearizeLongitudes = function() {
-    for(var i = 0; i < sites.length; i++) {
-        if(sites[i]['y'] <= 0) {
-            sites[i]['y'] = sites[i]['y'] + 360;
+    for(var i = 0; i < this.sites.length; i++) {
+        if(this.sites[i]['y'] <= 0) {
+            this.sites[i]['y'] = this.sites[i]['y'] + 360;
         }
     }
-
-    return sites;
 }
 
 
