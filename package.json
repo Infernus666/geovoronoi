@@ -2,9 +2,25 @@
   "name": "geovoronoi",
   "description": "Generates data for voronoi graph optimized for geo locations",
   "author": "Achin Kumar",
-  "dependencies": {
-  },
+  "dependencies": {},
   "engines": {
-  	"node": "0.10.33"
-  }
+    "node": "0.10.33"
+  },
+  "version": "1.0.0",
+  "main": "rhill-voronoi-core.js",
+  "scripts": {
+    "test": "web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Infernus666/geovoronoi.git"
+  },
+  "keywords": [
+    "voronoi"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Infernus666/geovoronoi/issues"
+  },
+  "homepage": "https://github.com/Infernus666/geovoronoi"
 }
