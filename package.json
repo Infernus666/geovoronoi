@@ -11,12 +11,16 @@
   "scripts": {
     "test": "web"
   },
+  "dependencies": {
+  	"express": "~4.9.x"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Infernus666/geovoronoi.git"
   },
   "keywords": [
-    "voronoi"
+    "voronoi",
+    "geovoronoi"
   ],
   "license": "ISC",
   "bugs": {
