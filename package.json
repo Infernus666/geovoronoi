@@ -1,0 +1,8 @@
+{
+  "name": "geo voronoi",
+  "description": "Generates data for voronoi graph optimized for geo locations",
+  "author": "Achin Kumar",
+  "dependencies": {
+  },
+  "engine": "node 0.10.33"
+}
