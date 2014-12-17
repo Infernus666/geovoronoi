@@ -1,1 +1,1 @@
-worker: node rhill-voronoi-core.js
+server: server.js

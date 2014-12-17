@@ -23,6 +23,14 @@ History: See https://github.com/gorhill/Javascript-Voronoi/CHANGELOG.md
 
 
 
+module.exports = {
+    getGeoVoronoiGraph: function (sites) {
+        var geoVoronoi = new GeoVoronoi();
+        geoVoronoi.computeGeoVononoi(sites);
+        var geoVoronoiGraph = geoVoronoi.voronoiGraph;
+        return geoVoronoiGraph;
+    }
+};
 
 
 // GEO-WRAPPER
