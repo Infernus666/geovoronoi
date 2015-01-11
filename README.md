@@ -3,9 +3,11 @@ A geo wrapper over a Voronoi that handles edge cases for GeoLocations
 
 
 I'm using <a href="https://github.com/gorhill/Javascript-Voronoi">this</a> Javascript implementation of Voronoi. Although it works perfectly for normal X-Y plane, it wouldn't quite fit in for geo locations. So, I've written a Geo wrapper over it, which basically does the following patch-work.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Longitudes don't stay linear near the international date line. It discontinues. Goes like '..., 178, 179, -179, -178,...'. GeoVoronoi would take care of this.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Auto-boxing super area of sites with optimal padding. (<code>Bbox</code> in code).
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Keeping latitude-longitudes sanitized in terms of range and decimal places.
+<ol>
+<li>Longitudes don't stay linear near the international date line. It discontinues. Goes like '..., 178, 179, -179, -178,...'. GeoVoronoi would take care of this.</li>
+<li>Auto-boxing super area of sites with optimal padding. (<code>Bbox</code> in code).</li>
+<li>Keeping latitude-longitudes sanitized in terms of range and decimal places.</li>
+</ol>
 
 <h1>Usage</h1>
 Input an array of latitude-longitudes and a <strong>voronoi-graph</strong> will be returned to you. The information inside voronoi graph can be used to do calculations, to determine zones and even to draw the Voronoi Diagram on a plane, GoogleMap, etc.
